@@ -45,7 +45,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-    <meta name="docbuild:last-update" content="Sep 21, 2024"/>
+    <meta name="docbuild:last-update" content="Sep 27, 2024"/>
   </head>
   
   
@@ -724,29 +724,37 @@ document.write(`
 
     <span class="k">return</span> <span class="n">df</span>
 
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">def identify_constantValue(df):</span>
+<span class="sd">    drop_cols_afterwards = []</span>
+<span class="sd">    df[f&quot;val_raw_{(0) * 5}prev&quot;] = df[&quot;val_raw&quot;]</span>
+<span class="sd">    drop_cols_afterwards.append(f&quot;val_raw_{(0) * 5}prev&quot;)</span>
+<span class="sd">    for i in range(6):</span>
+<span class="sd">        df[f&quot;val_raw_{(i + 1) * 5}prev&quot;] = df[&quot;val_raw&quot;].shift(i + 1)</span>
+<span class="sd">        df[f&quot;delta_{(i) * 5}_to_{(i + 1) * 5}&quot;] = abs(</span>
+<span class="sd">            df[f&quot;val_raw_{(i + 1) * 5}prev&quot;] - df[f&quot;val_raw_{(i) * 5}prev&quot;])</span>
+<span class="sd">        drop_cols_afterwards.append(f&quot;val_raw_{(i + 1) * 5}prev&quot;)</span>
+<span class="sd">        drop_cols_afterwards.append(f&quot;delta_{(i) * 5}_to_{(i + 1) * 5}&quot;)</span>
 
-<span class="k">def</span> <span class="nf">identify_constantValue</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
-    <span class="n">drop_cols_afterwards</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;val_raw_</span><span class="si">{</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="si">}</span><span class="s2">prev&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;val_raw&quot;</span><span class="p">]</span>
-    <span class="n">drop_cols_afterwards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;val_raw_</span><span class="si">{</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="si">}</span><span class="s2">prev&quot;</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">):</span>
-        <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;val_raw_</span><span class="si">{</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="si">}</span><span class="s2">prev&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;val_raw&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;delta_</span><span class="si">{</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="si">}</span><span class="s2">_to_</span><span class="si">{</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span>
-            <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;val_raw_</span><span class="si">{</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="si">}</span><span class="s2">prev&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;val_raw_</span><span class="si">{</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="si">}</span><span class="s2">prev&quot;</span><span class="p">])</span>
-        <span class="n">drop_cols_afterwards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;val_raw_</span><span class="si">{</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="si">}</span><span class="s2">prev&quot;</span><span class="p">)</span>
-        <span class="n">drop_cols_afterwards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;delta_</span><span class="si">{</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="si">}</span><span class="s2">_to_</span><span class="si">{</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">5</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="sd">    delta_cols = [&quot;delta_0_to_5&quot;, &quot;delta_5_to_10&quot;,</span>
+<span class="sd">                  &quot;delta_10_to_15&quot;]  # , &quot;delta_15_to_20&quot;, &quot;delta_20_to_25&quot;, &quot;delta_25_to_30&quot;]</span>
+<span class="sd">    df[&quot;isConstant&quot;] = ((df[&quot;error_class&quot;].isna()) &amp;</span>
+<span class="sd">                        (df[delta_cols] == 0).sum(axis=1, skipna=False) == len(delta_cols))</span>
 
-    <span class="n">delta_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;delta_0_to_5&quot;</span><span class="p">,</span> <span class="s2">&quot;delta_5_to_10&quot;</span><span class="p">,</span>
-                  <span class="s2">&quot;delta_10_to_15&quot;</span><span class="p">]</span>  <span class="c1"># , &quot;delta_15_to_20&quot;, &quot;delta_20_to_25&quot;, &quot;delta_25_to_30&quot;]</span>
-    <span class="n">df</span><span class="p">[</span><span class="s2">&quot;isConstant&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;error_class&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">())</span> <span class="o">&amp;</span>
-                        <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">delta_cols</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">delta_cols</span><span class="p">))</span>
+<span class="sd">    df.loc[df[&quot;isConstant&quot;] == True, &quot;error_class&quot;] = &#39;Constant&#39;</span>
 
-    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;isConstant&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;error_class&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Constant&#39;</span>
+<span class="sd">    df = df.drop(columns=[&quot;isConstant&quot;] + drop_cols_afterwards)</span>
 
-    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;isConstant&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">drop_cols_afterwards</span><span class="p">)</span>
+<span class="sd">    return df</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+
+<span class="k">def</span> <span class="nf">identify_constantValue</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;isConstant_alsoNoError&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;val_raw&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">min_periods</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span>
+                                                                                            <span class="n">raw</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;isConstant&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;isConstant_alsoNoError&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;val_raw&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;val_gt&quot;</span><span class="p">])</span>
 
     <span class="k">return</span> <span class="n">df</span>
-
 
 <span class="k">def</span> <span class="nf">identify_uncertainty</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">uncertainty_threshold</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">):</span>
     <span class="c1"># sensor uncertainty</span>
@@ -802,11 +810,12 @@ document.write(`
 
     <span class="c1"># order is important, error classes are not disjoint</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">identify_stuckAtZero</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">identify_constantValue</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">identify_outlier</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">identify_drift</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">identify_constantValue</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-    <span class="c1"># Uncertainty - use last. Many errors can fall into this category. But also others.</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">identify_uncertainty</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">uncertainty_threshold</span> <span class="o">=</span> <span class="n">uncertainty_threshold</span><span class="p">)</span>
+
+    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;error_class&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isna</span><span class="p">(),</span> <span class="s2">&quot;error_class&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Unidentified error&#39;</span>
 
     <span class="n">df</span><span class="p">[</span><span class="s2">&quot;error_class&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;error_class&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">&quot;category&quot;</span><span class="p">)</span>
 

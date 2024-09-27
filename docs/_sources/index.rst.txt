@@ -8,7 +8,7 @@ Welcome to TSCC's documentation!
 Welcome to TSCC (Time Series Check and Correct), the package for data quality management. You can determine and improve
 the accuracy of your data quality for right-skewed timeseries. This is a comprehensive guide to using our software.
 
-.. image:: _static/Overview.jpg
+.. image:: ./_static/Overview.jpg
    :alt: Overview of TSCC's functionalities
    :align: center
 
