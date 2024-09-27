@@ -1,100 +1,409 @@
+
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
-<head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>General preprocessing methods &mdash; TSCC 0.1 documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css" />
+
+<html lang="en" data-theme="light">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>General preprocessing methods &#8212; TSCC 0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="_static/doctools.js"></script>
-    <script src="_static/js/theme.js"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'preprocessing_general';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Feature generation methods" href="preprocessing_feature_generation.html" />
-    <link rel="prev" title="API-Reference" href="api_reference.html" /> 
-</head>
+    <link rel="prev" title="API-Reference" href="api_reference.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+    <meta name="docbuild:last-update" content="Sep 27, 2024"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="light">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
 
-          
-          
-          <a href="index.html" class="icon icon-home">
-            TSCC
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
-</div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
-<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
-</ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-</ul>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="api_reference.html">API-Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="api_reference.html#preprocessing">Preprocessing</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">General preprocessing methods</a></li>
-<li class="toctree-l3"><a class="reference internal" href="preprocessing_feature_generation.html">Feature generation methods</a></li>
-<li class="toctree-l3"><a class="reference internal" href="synthetic_error_generation.html">Synthetic error generation</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api_reference.html#exploration">Exploration</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_reference.html#detection">Detection</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_reference.html#correction">Correction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api_reference.html#assessment">Assessment</a></li>
-</ul>
-</li>
-</ul>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
-        </div>
-      </div>
-    </nav>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">TSCC</a>
-      </nav>
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">TSCC 0.1 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="getting_started.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="api_reference.html">API-Reference</a></li>
-      <li class="breadcrumb-item active">General preprocessing methods</li>
-      <li class="wy-breadcrumbs-aside">
-      </li>
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="usage.html">
+                        Usage
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="api_reference.html">
+                        API-Reference
+                      </a>
+                    </li>
+                
   </ul>
-  <hr/>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/TSCC/" title="TSCC" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class=" fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">TSCC</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="getting_started.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="usage.html">
+                        Usage
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="api_reference.html">
+                        API-Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/TSCC/" title="TSCC" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class=" fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">TSCC</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="api_reference.html" class="nav-link">API-Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">General...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section id="module-TSCC.preprocessing.general">
-<span id="general-preprocessing-methods"></span><h1>General preprocessing methods<a class="headerlink" href="#module-TSCC.preprocessing.general" title="Permalink to this heading"></a></h1>
+<span id="general-preprocessing-methods"></span><h1>General preprocessing methods<a class="headerlink" href="#module-TSCC.preprocessing.general" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="TSCC.preprocessing.general.Config">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">TSCC.preprocessing.general.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.Config" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">TSCC.preprocessing.general.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.Config" title="Permalink to this definition">#</a></dt>
 <dd><dl class="simple">
 <dt>colname_target_det<span class="classifier">str, optional</span></dt><dd><p>The column name of the target variable for detection models.</p>
 </dd>
@@ -142,7 +451,7 @@
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="docutils align-default">
+<table class="table">
 <tbody>
 <tr class="row-odd"><td><p><strong>update_frequency</strong></p></td>
 <td></td>
@@ -151,14 +460,14 @@
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="TSCC.preprocessing.general.Config.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colname_target_det</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname_target_corr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname_raw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname_isErroneousPred</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname_isEvent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensortype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_sensor_uncertainty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cross_validation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_test_IDs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_nrObs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detMethod_for_corr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'small'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">det_ML_model_savefolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corr_ML_model_savefolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#Config.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.Config.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">colname_target_det</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname_target_corr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname_raw</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname_isErroneousPred</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_cols</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname_isEvent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sensortype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target_sensor_uncertainty</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cross_validation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_test_IDs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold_nrObs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">detMethod_for_corr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'small'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">det_ML_model_savefolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corr_ML_model_savefolder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#Config.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.Config.__init__" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="TSCC.preprocessing.general.DataSetHandler">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">TSCC.preprocessing.general.</span></span><span class="sig-name descname"><span class="pre">DataSetHandler</span></span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#DataSetHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.DataSetHandler" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">TSCC.preprocessing.general.</span></span><span class="sig-name descname"><span class="pre">DataSetHandler</span></span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#DataSetHandler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.DataSetHandler" title="Permalink to this definition">#</a></dt>
 <dd><p>DataSetHandler class for handling data split into train and test as
 well as resampling operations.</p>
 <dl class="field-list simple">
@@ -189,7 +498,7 @@ well as resampling operations.</p>
 </dd>
 </dl>
 <p class="rubric">Methods</p>
-<table class="autosummary longtable docutils align-default">
+<table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#TSCC.preprocessing.general.DataSetHandler.append_col_to_df_results" title="TSCC.preprocessing.general.DataSetHandler.append_col_to_df_results"><code class="xref py py-obj docutils literal notranslate"><span class="pre">append_col_to_df_results</span></code></a>(series)</p></td>
 <td><p>Append a new column to the DataFrame.</p></td>
@@ -214,7 +523,7 @@ well as resampling operations.</p>
 </tr>
 </tbody>
 </table>
-<table class="docutils align-default">
+<table class="table">
 <tbody>
 <tr class="row-odd"><td><p><strong>getCharacteristics</strong></p></td>
 <td></td>
@@ -226,19 +535,19 @@ well as resampling operations.</p>
 </table>
 <dl class="py method">
 <dt class="sig sig-object py" id="TSCC.preprocessing.general.DataSetHandler.__init__">
-<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#DataSetHandler.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.DataSetHandler.__init__" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#DataSetHandler.__init__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.DataSetHandler.__init__" title="Permalink to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="TSCC.preprocessing.general.DataSetHandler.append_col_to_df_results">
-<span class="sig-name descname"><span class="pre">append_col_to_df_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">series</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#DataSetHandler.append_col_to_df_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.DataSetHandler.append_col_to_df_results" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">append_col_to_df_results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">series</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#DataSetHandler.append_col_to_df_results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.DataSetHandler.append_col_to_df_results" title="Permalink to this definition">#</a></dt>
 <dd><p>Append a new column to the DataFrame.
 The new column should have a name.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="TSCC.preprocessing.general.DataSetHandler.append_col_to_df_train_test">
-<span class="sig-name descname"><span class="pre">append_col_to_df_train_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">series</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#DataSetHandler.append_col_to_df_train_test"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.DataSetHandler.append_col_to_df_train_test" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">append_col_to_df_train_test</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">series</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#DataSetHandler.append_col_to_df_train_test"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.DataSetHandler.append_col_to_df_train_test" title="Permalink to this definition">#</a></dt>
 <dd><p>Returns the list of training DataFrames for features with an additional column.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -258,7 +567,7 @@ The new column should have a name.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="TSCC.preprocessing.general.DataSetHandler.get_complete_dataset">
-<span class="sig-name descname"><span class="pre">get_complete_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exclude_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#DataSetHandler.get_complete_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.DataSetHandler.get_complete_dataset" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_complete_dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exclude_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#DataSetHandler.get_complete_dataset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.DataSetHandler.get_complete_dataset" title="Permalink to this definition">#</a></dt>
 <dd><p>Return the original data, optionally excluding specific columns.</p>
 <p>Parameters :
 exclude_columns (list) : List of columns to exclude from the original data.</p>
@@ -266,7 +575,7 @@ exclude_columns (list) : List of columns to exclude from the original data.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="TSCC.preprocessing.general.DataSetHandler.get_test_features">
-<span class="sig-name descname"><span class="pre">get_test_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exclude_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#DataSetHandler.get_test_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.DataSetHandler.get_test_features" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_test_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exclude_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#DataSetHandler.get_test_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.DataSetHandler.get_test_features" title="Permalink to this definition">#</a></dt>
 <dd><p>Returns the list of testing DataFrames for features.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -279,7 +588,7 @@ exclude_columns (list) : List of columns to exclude from the original data.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="TSCC.preprocessing.general.DataSetHandler.get_test_targets">
-<span class="sig-name descname"><span class="pre">get_test_targets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extract_single_target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#DataSetHandler.get_test_targets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.DataSetHandler.get_test_targets" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_test_targets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extract_single_target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#DataSetHandler.get_test_targets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.DataSetHandler.get_test_targets" title="Permalink to this definition">#</a></dt>
 <dd><p>Returns the list of testing DataFrames for targets.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -292,7 +601,7 @@ exclude_columns (list) : List of columns to exclude from the original data.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="TSCC.preprocessing.general.DataSetHandler.get_train_features">
-<span class="sig-name descname"><span class="pre">get_train_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exclude_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#DataSetHandler.get_train_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.DataSetHandler.get_train_features" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_train_features</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exclude_columns</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#DataSetHandler.get_train_features"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.DataSetHandler.get_train_features" title="Permalink to this definition">#</a></dt>
 <dd><p>Returns the list of training DataFrames for features.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -305,7 +614,7 @@ exclude_columns (list) : List of columns to exclude from the original data.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="TSCC.preprocessing.general.DataSetHandler.get_train_targets">
-<span class="sig-name descname"><span class="pre">get_train_targets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extract_single_target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#DataSetHandler.get_train_targets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.DataSetHandler.get_train_targets" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">get_train_targets</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extract_single_target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#DataSetHandler.get_train_targets"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.DataSetHandler.get_train_targets" title="Permalink to this definition">#</a></dt>
 <dd><p>Returns the list of training DataFrames for targets.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -320,7 +629,7 @@ exclude_columns (list) : List of columns to exclude from the original data.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="TSCC.preprocessing.general.SMOGN">
-<span class="sig-prename descclassname"><span class="pre">TSCC.preprocessing.general.</span></span><span class="sig-name descname"><span class="pre">SMOGN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_fea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_tar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rel_thres</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#SMOGN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.SMOGN" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">TSCC.preprocessing.general.</span></span><span class="sig-name descname"><span class="pre">SMOGN</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_fea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_tar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rel_thres</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.8</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#SMOGN"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.SMOGN" title="Permalink to this definition">#</a></dt>
 <dd><p>Apply the SMOGN (Synthetic Minority Over-sampling Technique for Regression with Gaussian Noise)
 to handle imbalanced regression datasets by oversampling both rare and extreme values.</p>
 <dl class="field-list simple">
@@ -351,7 +660,7 @@ to handle imbalanced regression datasets by oversampling both rare and extreme v
 
 <dl class="py function">
 <dt class="sig sig-object py" id="TSCC.preprocessing.general.SMOTE">
-<span class="sig-prename descclassname"><span class="pre">TSCC.preprocessing.general.</span></span><span class="sig-name descname"><span class="pre">SMOTE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_fea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_tar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#SMOTE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.SMOTE" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">TSCC.preprocessing.general.</span></span><span class="sig-name descname"><span class="pre">SMOTE</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_fea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_tar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname_target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exclude_columns</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#SMOTE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.SMOTE" title="Permalink to this definition">#</a></dt>
 <dd><p>Apply the SMOTE (Synthetic Minority Over-sampling Technique) to handle imbalanced datasets.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -383,7 +692,7 @@ to handle imbalanced regression datasets by oversampling both rare and extreme v
 
 <dl class="py function">
 <dt class="sig sig-object py" id="TSCC.preprocessing.general.SMOTEwithCat">
-<span class="sig-prename descclassname"><span class="pre">TSCC.preprocessing.general.</span></span><span class="sig-name descname"><span class="pre">SMOTEwithCat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_fea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_tar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#SMOTEwithCat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.SMOTEwithCat" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">TSCC.preprocessing.general.</span></span><span class="sig-name descname"><span class="pre">SMOTEwithCat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_fea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_tar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">42</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#SMOTEwithCat"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.SMOTEwithCat" title="Permalink to this definition">#</a></dt>
 <dd><p>Apply the SMOTE-NC (Synthetic Minority Over-sampling Technique for Nominal and Continuous features)
 to handle imbalanced datasets that include both categorical and continuous features.</p>
 <dl class="field-list simple">
@@ -412,7 +721,7 @@ to handle imbalanced datasets that include both categorical and continuous featu
 
 <dl class="py function">
 <dt class="sig sig-object py" id="TSCC.preprocessing.general.check_equidistant_minute_timestamps">
-<span class="sig-prename descclassname"><span class="pre">TSCC.preprocessing.general.</span></span><span class="sig-name descname"><span class="pre">check_equidistant_minute_timestamps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#check_equidistant_minute_timestamps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.check_equidistant_minute_timestamps" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">TSCC.preprocessing.general.</span></span><span class="sig-name descname"><span class="pre">check_equidistant_minute_timestamps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#check_equidistant_minute_timestamps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.check_equidistant_minute_timestamps" title="Permalink to this definition">#</a></dt>
 <dd><p>Check if the datetime index of a DataFrame has equidistant time stamps each minute.</p>
 <p>Parameters:
 df (pd.DataFrame): DataFrame with a datetime index.</p>
@@ -422,7 +731,7 @@ bool: True if time stamps are equidistant each minute, False otherwise.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="TSCC.preprocessing.general.check_equidistant_problems">
-<span class="sig-prename descclassname"><span class="pre">TSCC.preprocessing.general.</span></span><span class="sig-name descname"><span class="pre">check_equidistant_problems</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'T'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#check_equidistant_problems"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.check_equidistant_problems" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">TSCC.preprocessing.general.</span></span><span class="sig-name descname"><span class="pre">check_equidistant_problems</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'T'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#check_equidistant_problems"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.check_equidistant_problems" title="Permalink to this definition">#</a></dt>
 <dd><p>Check problems in a DataFrame regarding equidistant datetime index values.</p>
 <p>Parameters:
 df (pd.DataFrame): DataFrame with a datetime index.
@@ -433,7 +742,7 @@ dict: Dictionary with the problems found in the dataset.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="TSCC.preprocessing.general.train_test_fea_tar_split">
-<span class="sig-prename descclassname"><span class="pre">TSCC.preprocessing.general.</span></span><span class="sig-name descname"><span class="pre">train_test_fea_tar_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tar_columns</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#train_test_fea_tar_split"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.train_test_fea_tar_split" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">TSCC.preprocessing.general.</span></span><span class="sig-name descname"><span class="pre">train_test_fea_tar_split</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tar_columns</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#train_test_fea_tar_split"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.train_test_fea_tar_split" title="Permalink to this definition">#</a></dt>
 <dd><p>Generate list of train and test datasets.
 results in one entry per list if cross_validation is False</p>
 <dl class="field-list simple">
@@ -460,7 +769,7 @@ results in one entry per list if cross_validation is False</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="TSCC.preprocessing.general.undersampling_valrange">
-<span class="sig-prename descclassname"><span class="pre">TSCC.preprocessing.general.</span></span><span class="sig-name descname"><span class="pre">undersampling_valrange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_fea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_tar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">undersampling_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inclusive_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'both'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#undersampling_valrange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.undersampling_valrange" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">TSCC.preprocessing.general.</span></span><span class="sig-name descname"><span class="pre">undersampling_valrange</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_fea</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">df_tar</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">colname</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">undersampling_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">val_range</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inclusive_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'both'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/TSCC/preprocessing/general.html#undersampling_valrange"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#TSCC.preprocessing.general.undersampling_valrange" title="Permalink to this definition">#</a></dt>
 <dd><p>Imbalanced data method</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -491,36 +800,65 @@ results in one entry per list if cross_validation is False</p>
 </section>
 
 
-           </div>
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="api_reference.html" class="btn btn-neutral float-left" title="API-Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="preprocessing_feature_generation.html" class="btn btn-neutral float-right" title="Feature generation methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
     </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2023, default.
-      <span class="lastupdated">Last updated on Sep 27, 2024.
-      </span></p>
   </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, default.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
+</p></div>
+      
+    </div>
+  
+</div>
 
-</footer>
-        </div>
-      </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
-
-</body>
+  </footer>
+  </body>
 </html>
